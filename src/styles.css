@@ -1,0 +1,45 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-plum: #5b1a3a;
+  --color-plum-dark: #3f0f27;
+  --color-plum-soft: #8a3a62;
+  --color-blush: #f7e1e4;
+  --color-blush-deep: #eec4cc;
+  --color-cream: #fdf8f5;
+  --color-gold: #b8843f;
+  --color-ink: #2a1520;
+  --color-mute: #7a6670;
+  --color-line: #eedfe2;
+  --color-leaf: #1f7a4d;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed bg-plum text-white hover:bg-plum-dark; }
+  .btn-gold { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed bg-gold text-white hover:brightness-95; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed border border-line bg-white text-ink hover:border-plum-soft; }
+  .btn-danger { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700; }
+  .btn-wa { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:cursor-not-allowed bg-[#25D366] text-white hover:brightness-95; }
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm outline-none transition placeholder:text-mute/70 focus:border-plum-soft focus:ring-2 focus:ring-blush;
+  }
+  .label { @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-mute; }
+  .card { @apply rounded-2xl border border-line bg-white; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
